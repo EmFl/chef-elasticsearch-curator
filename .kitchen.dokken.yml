@@ -25,6 +25,8 @@ platforms:
     driver:
       image: ubuntu:16.04
       pid_one_command: /bin/systemd
+    run_list:
+      - recipe[cron]
     attributes:
       apt:
         confd:
