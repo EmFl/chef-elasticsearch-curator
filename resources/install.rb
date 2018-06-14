@@ -44,7 +44,7 @@ action :install do
   elsif new_resource.install_method == 'pip'
     package 'python-pip'
     node.override['poise-python']['provider'] = 'system'
-    node.override['poise-python']['version '] = '2.7'
+    node.override['poise-python']['provider'] = 'scl' if platform_family?('rhel')
     @run_context.include_recipe 'poise-python::default'
     python_virtualenv '/opt/elasticsearch-curator'
     python_package 'elasticsearch-curator' do
