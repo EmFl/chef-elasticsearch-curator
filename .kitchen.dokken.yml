@@ -35,8 +35,9 @@ platforms:
 
   - name: centos-6
     driver:
-      image: centos:6.8
+      image: centos:6
       pid_one_command: /sbin/init
+      platform: rhel
     run_list:
       - recipe[cron]
       - recipe[yum-epel]
